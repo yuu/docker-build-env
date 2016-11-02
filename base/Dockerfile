@@ -12,7 +12,7 @@ RUN apt-get clean
 ENV DEBIAN_FRONTEND dialog
 
 # user
-ENV USERNAME yocto
+ENV USERNAME user
 RUN adduser $USERNAME
 ENV HOME /home/$USERNAME
 RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
