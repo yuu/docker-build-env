@@ -6,7 +6,7 @@ RUN sed -i -e 's/\/\/archive.ubuntu.com/\/\/jp.archive.ubuntu.com/g'  /etc/apt/s
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
     sudo \
-    git tmux curl \
+    git tmux curl vim \
     build-essential autoconf automake
 RUN apt-get clean
 ENV DEBIAN_FRONTEND dialog
