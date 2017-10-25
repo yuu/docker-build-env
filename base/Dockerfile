@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN sed -i -e 's/\/\/archive.ubuntu.com/\/\/jp.archive.ubuntu.com/g'  /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
-    sudo \
+    sudo ca-certificates \
     git tmux curl vim \
     build-essential autoconf automake
 RUN apt-get clean
