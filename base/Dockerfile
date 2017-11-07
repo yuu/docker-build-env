@@ -11,10 +11,12 @@ RUN apt-get install -y --no-install-recommends \
 RUN apt-get clean
 ENV DEBIAN_FRONTEND dialog
 
-RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen  && \
-    dpkg-reconfigure --frontend=noninteractive locales && \
-    update-locale LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8
+ENV LC_ALL=$LANG
+RUN sed -ie 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    locale-gen --purge $LANG && \
+    locale-gen && update-locale LANG=$LANG LC_ALL=$LC_ALL
 
 # user
 ENV USERNAME user
