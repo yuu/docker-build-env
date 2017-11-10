@@ -26,8 +26,10 @@ RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN echo "${USERNAME}:${USERNAME}" | chpasswd
 USER $USERNAME
 
+# change default shell
+RUN sudo ln -sf /bin/bash /bin/sh
+
 # git
-RUN /bin/bash
 RUN git config --global user.name "user"
 RUN git config --global user.email "user@dummy.com"
 RUN git config --global color.ui true
