@@ -23,7 +23,7 @@ xhost +local:ubuntu
 ### 2. コンテナを起動
 ホスト側で実行:
 ```
-docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix --device /dev/dri/card0 --net=host yuu3/docker-build-env:weston_latest
+docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --device /dev/dri/card0 -ti yuu3/weston
 ```
 
 ホストのDISPLAYが設定されていない場合:  
